@@ -1,10 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label '\'salve\''
+    }
+    
+  }
   stages {
-    stage('build') {
+    stage('checkout') {
       steps {
-        sh '''pwd
-ls'''
+        git(url: 'ssh://git@pangu.bldz.com:10022/core-service/commodity-soa.git', credentialsId: 'gitlab', branch: '$gitbranch')
       }
     }
   }
