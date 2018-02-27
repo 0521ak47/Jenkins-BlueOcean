@@ -9,7 +9,7 @@ pipeline {
         
       }
       steps {
-        git(url: 'http://pangu.bldz.com:10081/business-service/mall-basic-soa.git', branch: '$gitbranch', credentialsId: 'gitlab')
+        git(url: 'http://pangu.bldz.com:10081/business-service/mall-basic-soa.git', branch: 'release/pre', credentialsId: 'gitlab')
         sh 'mvn clean package -Dmaven.test.skip=true'
       }
     }
