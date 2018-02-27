@@ -12,7 +12,7 @@ pipeline {
         gitlab = 'release/pre'
       }
       steps {
-        git(url: 'ssh://git@pangu.bldz.com:10022/core-service/commodity-soa.git', branch: '$gitbranch', credentialsId: 'gitlab')
+        git(url: 'http://pangu.bldz.com:10081/business-service/mall-basic-soa.git', branch: '$gitbranch', credentialsId: 'gitlab')
         sh 'mvn clean package -Dmaven.test.skip=true'
       }
     }
