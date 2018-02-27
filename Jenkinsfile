@@ -8,9 +8,6 @@ pipeline {
         }
         
       }
-      environment {
-        gitbranch = 'release/pre'
-      }
       steps {
         git(url: 'http://pangu.bldz.com:10081/business-service/mall-basic-soa.git', branch: '$gitbranch', credentialsId: 'gitlab')
         sh 'mvn clean package -Dmaven.test.skip=true'
@@ -27,5 +24,8 @@ pipeline {
 echo "deploy war via EDAS on server!"'''
       }
     }
+  }
+  environment {
+    gitbranch = 'release/pre'
   }
 }
